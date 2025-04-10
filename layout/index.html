@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TS Nguyễn Văn A - Giới thiệu</title>
+    <link href="./layout/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./layout/css/style.css">
+
+</head>
+
+<body>
+    <!-- Thanh điều hướng Bootstrap -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <!-- <a class="navbar-brand" href="#">TS. Nguyễn Văn A</a> -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="documents.html">Tài liệu</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Đăng nhập</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Modal Đăng nhập -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Đăng nhập</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Tên đăng nhập</label>
+                            <input type="text" class="form-control" id="username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Mật khẩu</label>
+                            <input type="password" class="form-control" id="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-login">Đăng nhập</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="trangchu" class="hero">
+        <div class="hero-content">
+            <div class="hero-img">
+                <img src="office-man.png" alt="Ảnh giảng viên" class="profile-img">
+            </div>
+            <div class="hero-text">
+                <h1>TS. Nguyễn Văn A</h1>
+                <h3>Giảng viên Khoa Công nghệ Thông tin</h3>
+                <p>Với hơn 20 năm kinh nghiệm giảng dạy và nghiên cứu, tôi luôn nỗ lực đóng góp vào sự phát triển của
+                    ngành Công nghệ Thông tin tại Việt Nam.</p>
+                <a href="#lienhe" class="cta-btn">Liên hệ ngay</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nội dung chính -->
+    <section class="content-section">
+        <div class="container">
+            <div id="gioithieu" class="content-card">
+                <h2>Giới thiệu</h2>
+                <p>Xin chào! Tôi là Nguyễn Văn A, Tiến sĩ tại Trường Đại học XYZ. Với hơn 20 năm kinh nghiệm
+                    trong lĩnh vực giảng dạy và nghiên cứu, tôi luôn nỗ lực đóng góp vào sự phát triển của ngành Công
+                    nghệ Thông tin tại Việt Nam.</p>
+            </div>
+            <div id="nghiencuu" class="content-card">
+                <h2>Lĩnh vực nghiên cứu</h2>
+                <ul>
+                    <li>Trí tuệ nhân tạo (AI) và Học máy (Machine Learning)</li>
+                    <li>Xử lý ngôn ngữ tự nhiên (NLP)</li>
+                    <li>Hệ thống thông tin thông minh</li>
+                </ul>
+            </div>
+            <div id="lienhe" class="content-card">
+                <h2>Liên hệ</h2>
+                <p>Email: nguyenvana@xyz.edu.vn</p>
+                <p>Điện thoại: (+84) 123 456 789</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 TS. Nguyễn Văn A. All rights reserved.</p>
+    </footer>
+
+    <script src="./layout/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
