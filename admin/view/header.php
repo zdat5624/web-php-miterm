@@ -94,7 +94,13 @@
             <li class="nav-item">
                 <a class="nav-link" href="index.php?pg=categories">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Danh mục</span></a>
+                    <span>Trường</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="index.php?pg=categories">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Thông báo</span></a>
             </li>
 
 
