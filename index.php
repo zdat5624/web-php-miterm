@@ -15,6 +15,10 @@ if (!isset($_GET['pg'])) {
             include "view/documents.php";
             break;
 
+        case 'notifications':
+            include "view/notifications.php";
+            break;
+
         default:
 
             include "view/home.php";

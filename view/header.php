@@ -31,6 +31,9 @@
                     <li class="nav-item">
                         <a class="nav-link <?= isset($_GET['pg']) && $_GET['pg'] == "documents" ? "active" : '' ?>" href="index.php?pg=documents">Tài liệu</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?= isset($_GET['pg']) && $_GET['pg'] == "notifications" ? "active" : '' ?>" href="index.php?pg=notifications">Thông báo</a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item">
