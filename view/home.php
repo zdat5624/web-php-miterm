@@ -1,14 +1,36 @@
+<?php
+require_once "dao/pdo.php";
+
+// Lấy dữ liệu profile
+$profile = pdo_query_one("SELECT * FROM profile LIMIT 1");
+
+// Nếu không có profile, gán giá trị mặc định
+if ($profile === false) {
+    $profile = [
+        'avatar' => '',
+        'name' => 'Chưa có thông tin',
+        'workplace' => 'Chưa có thông tin',
+        'short_intro' => 'Chưa có thông tin',
+        'detailed_intro' => 'Chưa có thông tin',
+        'research_fields' => 'Chưa có thông tin',
+        'contact_info' => 'Chưa có thông tin'
+    ];
+}
+
+// Đường dẫn ảnh mặc định nếu không có avatar
+$avatar = !empty($profile['avatar']) ? '../Uploads/' . ($profile['avatar']) : 'assets/images/default-avatar.jpg';
+?>
+
 <!-- Hero Section -->
 <section id="trangchu" class="hero">
     <div class="hero-content">
         <div class="hero-img">
-            <img src="office-man.png" alt="Ảnh giảng viên" class="profile-img">
+            <img src="<?= $avatar ?>" alt="Ảnh giảng viên" class="profile-img">
         </div>
         <div class="hero-text">
-            <h1>TS. Nguyễn Văn A</h1>
-            <h3>Giảng viên Khoa Công nghệ Thông tin</h3>
-            <p>Với hơn 20 năm kinh nghiệm giảng dạy và nghiên cứu, tôi luôn nỗ lực đóng góp vào sự phát triển của
-                ngành Công nghệ Thông tin tại Việt Nam.</p>
+            <h1><?= ($profile['name']) ?></h1>
+            <h3><?= ($profile['workplace']) ?></h3>
+            <p><?= ($profile['short_intro']) ?></p>
             <a href="#lienhe" class="cta-btn">Liên hệ ngay</a>
         </div>
     </div>
@@ -19,22 +41,15 @@
     <div class="container">
         <div id="gioithieu" class="content-card">
             <h2>Giới thiệu</h2>
-            <p>Xin chào! Tôi là Nguyễn Văn A, Tiến sĩ tại Trường Đại học XYZ. Với hơn 20 năm kinh nghiệm
-                trong lĩnh vực giảng dạy và nghiên cứu, tôi luôn nỗ lực đóng góp vào sự phát triển của ngành Công
-                nghệ Thông tin tại Việt Nam.</p>
+            <p><?= ($profile['detailed_intro']) ?></p>
         </div>
         <div id="nghiencuu" class="content-card">
             <h2>Lĩnh vực nghiên cứu</h2>
-            <ul>
-                <li>Trí tuệ nhân tạo (AI) và Học máy (Machine Learning)</li>
-                <li>Xử lý ngôn ngữ tự nhiên (NLP)</li>
-                <li>Hệ thống thông tin thông minh</li>
-            </ul>
+            <?= html_entity_decode($profile['research_fields']) ?>
         </div>
         <div id="lienhe" class="content-card">
             <h2>Liên hệ</h2>
-            <p>Email: nguyenvana@xyz.edu.vn</p>
-            <p>Điện thoại: (+84) 123 456 789</p>
+            <?= html_entity_decode($profile['contact_info']) ?>
         </div>
     </div>
 </section>

@@ -507,9 +507,9 @@ section[id],
 
 /* Notification Page Styles */
 .notification-header {
-    display: flex;
+    /* display: flex;
     justify-content: flex-end;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem; */
 }
 
 .items-per-page {
@@ -550,9 +550,9 @@ section[id],
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
-.notification h3 {
+.notification h5 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
+    /* font-size: 1.8rem; */
     color: #1e40af;
     margin-bottom: 1rem;
     position: relative;
@@ -570,8 +570,8 @@ section[id],
 }
 
 .notification p {
-    font-size: 1.1rem;
-    color: #6b7280;
+    /* font-size: 1.1rem; */
+    /* color: #6b7280; */
     margin-bottom: 1rem;
 }
 
@@ -864,4 +864,23 @@ section[id],
     .hero-text p {
         font-size: 1rem;
     }
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    width: 100%;
+}
+
+.table {
+    min-width: 600px;
+    /* hoặc 1000px nếu bạn có nhiều cột */
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    white-space: nowrap;
+    /* Ngăn nội dung xuống dòng nếu quá dài */
+    padding: 8px;
 }

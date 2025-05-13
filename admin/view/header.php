@@ -92,15 +92,21 @@
             </li>
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="index.php?pg=categories">
+                <a class="nav-link" href="index.php?pg=universities">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Trường</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="index.php?pg=categories">
+                <a class="nav-link" href="index.php?pg=notifications">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Thông báo</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="index.php?pg=profile">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Hồ sơ</span></a>
             </li>
 
 
@@ -321,14 +327,10 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Hồ sơ cá nhân
-                                </a>
 
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+
+                                <a class="dropdown-item" href="../index.php?pg=logout" ">
+                                    <i class=" fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Đăng xuất
                                 </a>
                             </div>

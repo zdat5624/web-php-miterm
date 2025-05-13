@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TS Nguyễn Văn A - Giới thiệu</title>
+    <title>University Portal</title>
     <link href="./layout/css/bootstrap.min.css" rel="stylesheet">
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap"
@@ -28,21 +28,47 @@
                     <li class="nav-item">
                         <a class="nav-link  <?= !isset($_GET['pg']) ? "active" : '' ?>" aria-current="page" href="index.php">Trang chủ</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link <?= isset($_GET['pg']) && $_GET['pg'] == "documents" ? "active" : '' ?>" href="index.php?pg=documents">Tài liệu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link <?= isset($_GET['pg']) && $_GET['pg'] == "notifications" ? "active" : '' ?>" href="index.php?pg=notifications">Thông báo</a>
-                    </li>
+
+                    <?php
+                    if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
+                        echo '
+                            <li class="nav-item">
+                                <a class="nav-link ' . (isset($_GET['pg']) && $_GET['pg'] == "documents" ? "active" : "") . '" href="index.php?pg=documents">Tài liệu</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link ' . (isset($_GET['pg']) && $_GET['pg'] == "notifications" ? "active" : "") . '" href="index.php?pg=notifications">Thông báo</a>
+                            </li>
+                        ';
+                    }
+                    ?>
                 </ul>
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../admin/">ADMIN</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Đăng nhập</a>
-                    </li>
+                    <?php
+                    if (isset($_SESSION['user']) && !empty($_SESSION['user']) && $_SESSION['user']['role'] === 'ADMIN') {
+                        echo '
+                            <li class="nav-item">
+                                <a class="nav-link" href="../admin/">Đến trang quản trị</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.php?pg=logout">Đăng xuất</a>
+                            </li>
+                        ';
+                    } else if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
+                        echo '
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.php?pg=logout">Đăng xuất</a>
+                            </li>
+                        ';
+                    } else {
+                        echo '
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Đăng nhập</a>
+                            </li>
+                        ';
+                    }
+                    ?>
                 </ul>
+
             </div>
         </div>
     </nav>
@@ -56,10 +82,11 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                    <div id="login-message"></div>
                     <form id="loginForm">
                         <div class="mb-3">
-                            <label for="username" class="form-label">Tên đăng nhập</label>
-                            <input type="text" class="form-control" id="username" required>
+                            <label for="username" class="form-label">Email đăng nhập</label>
+                            <input type="email" class="form-control" id="username" required>
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Mật khẩu</label>
