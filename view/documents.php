@@ -86,22 +86,26 @@ $documents = get_documents_paginated_with_university($limit, $offset, $universit
             </div>
         </div>
 
-        <!-- Phân trang -->
         <?php if ($total_pages > 1): ?>
-            <div class="pagination">
-                <a href="index.php?pg=documents&page=<?php echo max(1, $current_page - 1); ?>&university_id=<?php echo $university_id; ?>"
-                    class="page-link <?php echo $current_page <= 1 ? 'disabled' : ''; ?>">Trước</a>
+            <ul class="pagination justify-content-center">
+                <li class="page-item <?php echo $current_page <= 1 ? 'disabled' : ''; ?>">
+                    <a class="page-link" href="index.php?pg=documents&page=<?php echo max(1, $current_page - 1); ?>&university_id=<?php echo $university_id; ?>"
+                        <?php echo $current_page <= 1 ? 'aria-disabled="true" tabindex="-1"' : ''; ?>>Trước</a>
+                </li>
 
                 <?php for ($i = 1; $i <= $total_pages; $i++): ?>
-                    <a href="index.php?pg=documents&page=<?php echo $i; ?>&university_id=<?php echo $university_id; ?>"
-                        class="page-link <?php echo $current_page == $i ? 'active' : ''; ?>">
-                        <?php echo $i; ?>
-                    </a>
+                    <li class="page-item <?php echo $current_page == $i ? 'active' : ''; ?>">
+                        <a class="page-link" href="index.php?pg=documents&page=<?php echo $i; ?>&university_id=<?php echo $university_id; ?>">
+                            <?php echo $i; ?>
+                        </a>
+                    </li>
                 <?php endfor; ?>
 
-                <a href="index.php?pg=documents&page=<?php echo min($total_pages, $current_page + 1); ?>&university_id=<?php echo $university_id; ?>"
-                    class="page-link <?php echo $current_page >= $total_pages ? 'disabled' : ''; ?>">Sau</a>
-            </div>
+                <li class="page-item <?php echo $current_page >= $total_pages ? 'disabled' : ''; ?>">
+                    <a class="page-link" href="index.php?pg=documents&page=<?php echo min($total_pages, $current_page + 1); ?>&university_id=<?php echo $university_id; ?>"
+                        <?php echo $current_page >= $total_pages ? 'aria-disabled="true" tabindex="-1"' : ''; ?>>Sau</a>
+                </li>
+            </ul>
         <?php endif; ?>
     </div>
 </section>

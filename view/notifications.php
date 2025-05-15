@@ -1,7 +1,7 @@
 <?php
 // Thiết lập phân trang
 $limit = 3; // Số thông báo mỗi trang
-$current_page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$current_page = isset($_GET['page']) ? $_GET['page'] : 1;
 $offset = ($current_page - 1) * $limit;
 
 // Lấy university_id
@@ -67,7 +67,7 @@ $notifications = get_notifications_paginated($limit, $offset, $university_id);
         </div>
 
         <!-- Phân trang -->
-        <?php if ($total_pages > 1): ?>
+        <!-- <?php if ($total_pages > 1): ?>
             <div class="pagination">
                 <a href="index.php?pg=notifications&page=<?php echo max(1, $current_page - 1); ?>&university_id=<?php echo $university_id; ?>"
                     class="page-link <?php echo $current_page <= 1 ? 'disabled' : ''; ?>">Trước</a>
@@ -82,6 +82,26 @@ $notifications = get_notifications_paginated($limit, $offset, $university_id);
                 <a href="index.php?pg=notifications&page=<?php echo min($total_pages, $current_page + 1); ?>&university_id=<?php echo $university_id; ?>"
                     class="page-link <?php echo $current_page >= $total_pages ? 'disabled' : ''; ?>">Sau</a>
             </div>
-        <?php endif; ?>
+        <?php endif; ?> -->
+
+
+        <ul class="pagination justify-content-center">
+            <li class="page-item <?php echo $current_page <= 1 ? 'disabled' : ''; ?>">
+                <a class="page-link" href="index.php?pg=notifications&page=<?php echo max(1, $current_page - 1); ?>&university_id=<?php echo $university_id; ?>">Trước</a>
+            </li>
+
+            <?php for ($i = 1; $i <= $total_pages; $i++): ?>
+                <li class="page-item <?php echo $current_page == $i ? 'active' : ''; ?>">
+                    <a class="page-link" href="index.php?pg=notifications&page=<?php echo $i; ?>&university_id=<?php echo $university_id; ?>">
+                        <?php echo $i; ?>
+                    </a>
+                </li>
+            <?php endfor; ?>
+
+            <li class="page-item <?php echo $current_page >= $total_pages ? 'disabled' : ''; ?>">
+                <a class="page-link" href="index.php?pg=notifications&page=<?php echo min($total_pages, $current_page + 1); ?>&university_id=<?php echo $university_id; ?>">Sau</a>
+            </li>
+        </ul>
+
     </div>
 </section>
